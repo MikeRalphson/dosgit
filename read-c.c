@@ -226,10 +226,9 @@ int read_cache(void)
 
 	map = (void *)-1;
 	if (!fstat(fd, &st)) {
-		map = NULL;
 		size = st.st_size;
 		errno = EINVAL;
-		if (size > sizeof(struct cache_header))
+		if (size >= sizeof(struct cache_header))
 			map = mmap(NULL, size, PROT_READ, MAP_PRIVATE, fd, 0);
 	}
 	close(fd);
