@@ -237,6 +237,8 @@ int read_cache(void)
 		return error("mmap failed");
 
 	hdr = map;
+	if (!hdr)
+		return error("hdr is null?");
 	if (verify_hdr(hdr, size) < 0)
 		goto unmap;
 
