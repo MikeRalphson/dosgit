@@ -233,7 +233,7 @@ int read_cache(void)
 			map = mmap(NULL, size, PROT_READ, MAP_PRIVATE, fd, 0);
 	}
 	close(fd);
-	if (-1 == (int)(long)map)
+	if ((-1 == (int)(long)map) || !map)
 		return error("mmap failed");
 
 	hdr = map;
