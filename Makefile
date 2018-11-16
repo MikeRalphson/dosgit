@@ -1,7 +1,7 @@
 CFLAGS=-g
 CC=gcc
 
-PROG=update-c show-diff init-db write-tree read-tree commit-tree cat-file cat-f
+PROG=update-cache show-diff init-db write-tree read-tree commit-tree cat-file
 
 all: $(PROG)
 
@@ -12,7 +12,7 @@ LIBS=-lssl -lz -lcrypto
 
 init-db: init-db.o
 
-update-c: update-c.o read-c.o
+update-cache: update-c.o read-c.o
 	$(CC) $(CFLAGS) -o update-c update-c.o read-c.o $(LIBS)
 
 show-diff: show-d.o read-c.o
@@ -32,7 +32,6 @@ cat-file: cat-f.o read-c.o
 
 read-c.o: cache.h
 show-d.o: cache.h
-cat-f.o: cache.h
 
 clean:
 	rm -f *.o $(PROG) temp_git_file_*
