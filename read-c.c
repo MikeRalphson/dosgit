@@ -1,3 +1,4 @@
+#include "string.h"
 #include "cache.h"
 
 const char *sha1_file_directory = NULL;

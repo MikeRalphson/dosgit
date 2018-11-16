@@ -1,14 +1,14 @@
 CFLAGS=-g
 CC=gcc
 
-PROG=update-c show-d init-db write-t read-t commit-t cat-f
+PROG=update-c show-diff init-db write-tree read-tree commit-tree cat-file
 
 all: $(PROG)
 
 install: $(PROG)
 	install $(PROG) $(HOME)/bin/
 
-LIBS= -lssl
+LIBS=-lssl -lz -lcrypto
 
 init-db: init-db.o
 
