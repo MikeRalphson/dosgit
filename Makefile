@@ -1,4 +1,4 @@
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -O2
 CC=gcc
 
 PROG=update-cache show-diff init-db write-tree read-tree commit-tree cat-file
