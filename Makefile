@@ -1,7 +1,7 @@
 CFLAGS=-g
 CC=gcc
 
-PROG=update-c show-diff init-db write-tree read-tree commit-tree cat-file
+PROG=update-c show-diff init-db write-tree read-tree commit-tree cat-file cat-f
 
 all: $(PROG)
 
@@ -32,6 +32,7 @@ cat-file: cat-f.o read-c.o
 
 read-c.o: cache.h
 show-d.o: cache.h
+cat-f.o: cache.h
 
 clean:
 	rm -f *.o $(PROG) temp_git_file_*

@@ -1,3 +1,7 @@
 *.o
 init-db
 update-c
+commit-t
+read-t
+show-d
+write-t

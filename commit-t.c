@@ -1,3 +1,4 @@
+#include "string.h"
 #include "cache.h"
 
 #include <pwd.h>
