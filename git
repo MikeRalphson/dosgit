@@ -31,12 +31,13 @@ __END__
 }
 
 
-cmd=$1; shift
+cmd=$1;
 if [ ! "$cmd" ]; then
 	error "missing command"
 	help
 	exit 1
 fi
+shift
 
 
 ### XXX: Compatibility hack.
