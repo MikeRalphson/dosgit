@@ -190,8 +190,8 @@ static int write_cache(int newfd, struct cache_entry **cache, int entries)
 /*
  * We fundamentally don't like some paths: we don't want
  * dot or dot-dot anywhere, and in fact, we don't even want
- * any other dot-files (.dircache or anything else). They
- * are hidden, for chist sake.
+ * any other dot-files (.git or anything else). They
+ * are hidden, for christ's sake.
  *
  * Also, we don't want double slashes or slashes at the
  * end that can make pathnames ambiguous. 
@@ -225,7 +225,7 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	newfd = open(".dircache/index.lock", O_RDWR | O_CREAT | O_EXCL, 0600);
+	newfd = open(".git/index.lock", O_RDWR | O_CREAT | O_EXCL, 0600);
 	if (newfd < 0) {
 		perror("unable to create new cachefile");
 		return -1;
@@ -241,8 +241,8 @@ int main(int argc, char **argv)
 			goto out;
 		}
 	}
-	if (!write_cache(newfd, active_cache, active_nr) && !rename(".dircache/index.lock", ".dircache/index"))
+	if (!write_cache(newfd, active_cache, active_nr) && !rename(".git/index.lock", ".git/index"))
 		return 0;
 out:
-	unlink(".dircache/index.lock");
+	unlink(".git/index.lock");
 }
