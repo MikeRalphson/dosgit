@@ -26,7 +26,7 @@ changelog () {
 		parent=${new_parent[$(($parents-1))]}
 		echo $parent >> $TMPCL
 
-		cat-file commit $parent >$TMPCM
+		cat-f commit $parent >$TMPCM
 
 		echo me $parent
 		cat $TMPCM

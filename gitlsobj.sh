@@ -30,9 +30,9 @@ for high in 0 1 2 3 4 5 6 7 8 9 a b c d e f ; do
 				continue
 			fi
 			base=`basename $f`
-			type=`cat-f -t $top$base`
+			type=`./cat-f $top$base` # -t
 			if [ ! "$target" ] || [ $target == $type ]; then
-				echo -e "$top$base\t$type"
+				echo "$top$base\t$type"
 			fi
 		done
 	done

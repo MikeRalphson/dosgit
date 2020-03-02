@@ -21,7 +21,7 @@ fi
 
 if [ ! "$id1" ] && [ ! "$id2" ]; then
 	# FIXME: We should squeeze gitdiff-do-alike output from this.
-	show-d
+	./show-d
 	exit
 fi
 

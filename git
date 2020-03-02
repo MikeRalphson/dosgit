@@ -9,6 +9,8 @@
 # This command mostly only multiplexes to the individual script based
 # on the first argument.
 
+PATH=.:$PATH
+
 error () {
 	echo git: $@ >&2
 }

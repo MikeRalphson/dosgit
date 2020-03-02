@@ -21,6 +21,11 @@ id=$1
 if [ ! "$id" ]; then
 	id=$(cat .git/HEAD)
 fi
+ref=$(echo $id | cut -d\  -f 1)
+if [ "$ref" = "ref:" ]; then
+        id=$(echo $id | cut -d\  -f 2)
+        id=$(cat .git/$id)
+fi
 
 if (echo $id | egrep -vq "$SHA1ONLY") && [ -r ".git/tags/$id" ]; then
 	id=$(cat ".git/tags/$id")
@@ -41,11 +46,11 @@ if echo $id | egrep -vq "$SHA1ONLY"; then
 	exit 1
 fi
 
-if [ "$type" = "tree" ] && [ $(cat-file -t "$id") = "commit" ]; then
-	id=$(cat-file commit $id | egrep "$TREE" | cut -d ' ' -f 2)
+if [ "$type" = "tree" ] && [ $(cat-f -t "$id") = "commit" ]; then
+	id=$(cat-f commit $id | egrep "$TREE" | cut -d ' ' -f 2)
 fi
 
-if [ $(cat-file -t "$id") != "$type" ]; then
+if [ $(cat-f -t "$id") != "$type" ]; then
 	echo "Invalid id: $id" >&2
 	exit 1
 fi
