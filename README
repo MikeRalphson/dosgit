@@ -28,7 +28,7 @@ to other objects (by referencing their SHA1 hash), and so you can build
 up a hierarchy of objects. 
 
 There are several kinds of objects in the content-addressable collection
-database.  They are all in deflated with zlib, and start off with a tag
+database.  They are all deflated with zlib, and start off with a tag
 of their type, and size information about the data.  The SHA1 hash is
 always the hash of the _compressed_ object, not the original one.
 
@@ -87,7 +87,7 @@ parents do not have to actually have any relationship with the result,
 for example.
 
 Note on changesets: unlike real SCM's, changesets do not contain rename
-information or file mode chane information.  All of that is implicit in
+information or file mode change information.  All of that is implicit in
 the trees involved (the result tree, and the result trees of the
 parents), and describing that makes no sense in this idiotic file
 manager.
@@ -122,7 +122,7 @@ it's not something "git" does for you.
 Another way of saying the same thing: "git" itself only handles content
 integrity, the trust has to come from outside. 
 
-	Current Directory Cache (".dircache/index")
+	Current Directory Cache (".git/index")
 
 The "current directory cache" is a simple binary file, which contains an
 efficient representation of a virtual directory content at some random
